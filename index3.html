@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQLite Table Example</title>
+</head>
+<body>
+    <h1>SQLite Table Example</h1>
+    <form action="/add" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="value">Value:</label>
+        <input type="number" id="value" name="value">
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item[1] }} - Value: {{ item[2] }}
+            <form action="/remove/{{ item[0] }}" method="post" style="display:inline;">
+                <button type="submit">Remove</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
